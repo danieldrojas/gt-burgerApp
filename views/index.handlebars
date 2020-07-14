@@ -3,7 +3,7 @@
 
 
 <h2>Add a burger</h2>
-<form class="create-form" method="POST">
+<form class="create-form" method="POST">  
 
     <div class="form-group">
         <label for="burger">Type of burger:</label>
@@ -15,8 +15,48 @@
 
 <h2>Burgers </h2>
 
-<ul>
-    {{#each burgers }}
-    <li>{{burger_name}}</li>
+<ul class="left-side">
+
+  {{#each burgers }}
+
+    {{#unless devoured}}
+        <li>{{burger_name}}</li>
+        <button name={{id}} class="devour">Devour</button>
+
+    {{/unless}}
     {{/each}}
+    
 </ul>
+
+<ul class="right-side">
+
+    {{#each burgers }}
+
+        {{#if devoured}}
+
+            <li>{{burger_name}}</li>
+           
+        {{/if}}
+
+    {{/each}}
+
+</ul>
+
+
+
+
+<script>
+    $(".devour").on("click", function() {
+        console.log("you got clicked", $(this).attr('name'))
+        $.ajax({
+            url: "/api/burgers/" + $(this).attr('name') ,
+            type: "PUT",
+
+
+        }).then(function(data){
+            window.location.reload()
+        })
+
+
+    })
+</script>
