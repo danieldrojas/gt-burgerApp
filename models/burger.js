@@ -12,8 +12,8 @@ let burger = {
         })
     },
 
-    insert: function (colName, value, cb) {
-        orm.insertOne("burgers", colName, value, function (res) {
+    insert: function (value, cb) {
+        orm.insertOne("burgers", value, function (res) {
             cb(res);
         })
     },
