@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>This is burgers</title>
-</head>
-<body>
-    Helloo this is index!
-</body>
-</html>
+
+   <h1>Burgers</h1>
+
+
+<h2>Add a burger</h2>
+<form class="create-form" method="POST">
+
+    <div class="form-group">
+        <label for="burger">Type of burger:</label>
+        <input type="text" id="burger-input" name="burger">
+    </div>
+
+    <button type="submit">Add burger</button>
+</form>
+
+<h2>Burgers </h2>
+
+<ul>
+    {{#each burgers }}
+    <li>{{burger_name}}</li>
+    {{/each}}
+</ul>

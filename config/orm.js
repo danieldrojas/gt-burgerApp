@@ -13,12 +13,7 @@ var orm = {
 
     },
     insertOne: function (tableName, colName, value, cb) {
-        let queryString = "INSERT INTO "; queryString += tableName;
-        queryString += " SET ";
-        queryString += colName;
-        queryString += " = ";
-        queryString += value
-
+        let queryString = "INSERT INTO " + tableName + "SET burger_name = " + value;
         connection.query(queryString, function (err, result) {
             if (err) throw err;
             cb(result);
