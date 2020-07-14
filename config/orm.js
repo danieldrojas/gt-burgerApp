@@ -13,7 +13,8 @@ var orm = {
 
     },
     insertOne: function (tableName, colName, value, cb) {
-        let queryString = "INSERT INTO " + tableName + "SET burger_name = " + value;
+        let queryString = "INSERT INTO " + tableName + " SET " + colName + "'" + value + "'";
+        console.log('THIS IS OUR QUERY!!', queryString)
         connection.query(queryString, function (err, result) {
             if (err) throw err;
             cb(result);
@@ -29,6 +30,7 @@ var orm = {
         queryString += condition;
 
         connection.query(queryString, function (err, result) {
+            console.log('IN .then OF CONNECTION QUESRY FOR UPDATE!!!!!!!!!!!!')
             if (err) throw err;
             cb(result);
         });

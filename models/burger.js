@@ -12,13 +12,14 @@ let burger = {
         })
     },
 
-    insert: function (value, cb) {
-        orm.insertOne("burgers", value, function (res) {
+    insert: function (colName, value, cb) {
+        orm.insertOne("burgers", colName, value,function (res) {
             cb(res);
         })
     },
     update: function (colName, value, condition, cb) {
         orm.updateOne("burgers", colName, value, condition, function (res) {
+            console.log("INSIDE UPDATE MODEL CALLBAK!!!!!!!!!!!!!!!!")
             cb(res);
         })
     }
