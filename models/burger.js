@@ -9,7 +9,7 @@ let burger = {
 
         orm.selectAll("burgers", function (res) {
             cb(res)
-        })        
+        })
     },
 
     insert: function (colName, value, cb) {
@@ -20,17 +20,10 @@ let burger = {
     update: function (colName, value, condition, cb) {
         orm.updateOne("burgers", colName, value, condition, function (res) {
             cb(res);
-        } )
+        })
     }
 
 
-}
-
-
-
-
-
-
-
+};
 
 module.exports = burger;
