@@ -1,34 +1,51 @@
 
-   <h1>Burgers</h1>
+<div class="container" style="float: inline-start; background-color: green">
 
 
-<h2>Add a burger</h2>
-<form class="create-form" method="POST">  
-
+<div class="row">
+<form class="create-form" method="POST"  style="margin: auto">  
     <div class="form-group">
+        <h1>Burgers</h1>
+            <h2>Add a burger</h2>
         <label for="burger">Type of burger:</label>
         <input type="text" id="burger-input" name="burger">
+        <button type="submit">Add burger</button>
     </div>
 
-    <button type="submit">Add burger</button>
+    
 </form>
+</div>
+
+
+<div class="row">
+<div class="col-6">
+
 
 <h2>Burgers </h2>
 
-<ul class="left-side">
+<ul class="left-side" >
 
   {{#each burgers }}
 
     {{#unless devoured}}
-        <li>{{burger_name}}</li>
-        <button name={{id}} class="devour">Devour</button>
+    <div class="row" style="padding: 10px;">
+    <div class="col">
+                <li>{{burger_name}} <button name={{id}} type="button"
+                        class="devour btn btn-warning">Devour</button> </li>
+</div>
+    </div>
 
+        
     {{/unless}}
     {{/each}}
     
 </ul>
+</div>
+<div class="col-6">
 
-<ul class="right-side">
+
+<ul class="right-side" style="float: right">
+<h2>Devoured </h2>
 
     {{#each burgers }}
 
@@ -41,9 +58,10 @@
     {{/each}}
 
 </ul>
+</div>
+</div>
 
-
-
+</div>
 
 <script>
     $(".devour").on("click", function() {

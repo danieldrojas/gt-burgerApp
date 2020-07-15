@@ -1,0 +1,15 @@
+.left-side {
+    float: left;
+}
+
+ul .right-side {
+    float: right;
+}
+
+.form-input{
+    flex: auto;
+}
+
+.container {
+    background-color: yellow;
+}
